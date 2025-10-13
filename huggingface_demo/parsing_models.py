@@ -3,14 +3,14 @@ import torch
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-class DSTModel():
+class ParsingModel():
     def __init__(self):
         pass
 
     def predict(self, history):
         raise NotImplementedError()
 
-class GelatoDSTModel(DSTModel):
+class GelatoParsingModel(ParsingModel):
     def __init__(self, model_path="google-t5/t5-base"):
         super().__init__()
         self.model_path = model_path
@@ -54,8 +54,8 @@ class GelatoDSTModel(DSTModel):
         return state
 
 if __name__ == '__main__':
-    # dst_model = GelatoDSTModel()
-    dst_model = GelatoDSTModel(model_path="./output/dst_model/checkpoint-best")
+    # dst_model = GelatoParsingModel()
+    dst_model = GelatoParsingModel(model_path="./output/dst_model/checkpoint-best")
 
     history = [{
             "speaker": "customer",
