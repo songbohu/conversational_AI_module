@@ -1,0 +1,73 @@
+[
+    [
+        {"speaker": "user", "utterance": "Hi! I’m planning to visit Cambridge next month."},
+        {"speaker": "assistant", "utterance": "That’s great! There’s so much to see here."},
+        {"speaker": "user", "utterance": "Can you tell me a bit about the colleges?"},
+        {"speaker": "assistant", "utterance": "Sure. There are 31 colleges, each with its own character, history, and traditions."},
+        {"speaker": "user", "utterance": "Which one should I visit first?"},
+        {"speaker": "assistant", "utterance": "You can start with King’s College—it’s iconic for its chapel and view of the River Cam."}
+    ],
+    [
+        {"speaker": "user", "utterance": "What’s so special about Trinity College?"},
+        {"speaker": "assistant", "utterance": "It’s one of the wealthiest and largest colleges, founded by Henry VIII."},
+        {"speaker": "user", "utterance": "Oh really? I didn’t know that."},
+        {"speaker": "assistant", "utterance": "Yes, and it’s famous for its alumni, including Isaac Newton and several prime ministers."},
+        {"speaker": "user", "utterance": "Wow, sounds impressive. Is it open to visitors?"},
+        {"speaker": "assistant", "utterance": "Yes, visitors can walk around the Great Court and the gardens when it’s open."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Which Cambridge college has the best food?"},
+        {"speaker": "assistant", "utterance": "That’s subjective! But some say St John’s and Jesus College have great Formal Halls."},
+        {"speaker": "user", "utterance": "What’s a Formal Hall?"},
+        {"speaker": "assistant", "utterance": "It’s a traditional three-course dinner where students dress up and dine by candlelight."},
+        {"speaker": "user", "utterance": "That sounds amazing, very Harry Potter!"},
+        {"speaker": "assistant", "utterance": "Exactly! Many people say it feels just like Hogwarts."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Do all colleges look the same?"},
+        {"speaker": "assistant", "utterance": "Not really. Each one has a different style—some are medieval, others are modern."},
+        {"speaker": "user", "utterance": "Which is the most modern one?"},
+        {"speaker": "assistant", "utterance": "Homerton College is relatively new; it became a full college in 2010."}
+    ],
+    [
+        {"speaker": "user", "utterance": "I heard students live in colleges instead of dorms. Is that true?"},
+        {"speaker": "assistant", "utterance": "Yes, that’s right. Each student belongs to a college, which provides accommodation and meals."},
+        {"speaker": "user", "utterance": "So it’s like a mini university inside the university?"},
+        {"speaker": "assistant", "utterance": "Exactly! Colleges are like small communities within Cambridge."},
+        {"speaker": "user", "utterance": "That must make it easier to meet people."},
+        {"speaker": "assistant", "utterance": "Yes, it really helps students connect and feel part of something."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Which college has the most beautiful gardens?"},
+        {"speaker": "assistant", "utterance": "Clare College and St John’s are both known for their riverside gardens."},
+        {"speaker": "user", "utterance": "Can visitors go there?"},
+        {"speaker": "assistant", "utterance": "Yes, most colleges are open during the day, especially in the summer."},
+        {"speaker": "user", "utterance": "I’d love to take some photos there."}
+    ],
+    [
+        {"speaker": "user", "utterance": "What’s it like studying at Cambridge?"},
+        {"speaker": "assistant", "utterance": "It’s intense but rewarding. Students have small-group tutorials called supervisions."},
+        {"speaker": "user", "utterance": "That sounds very different from other universities."},
+        {"speaker": "assistant", "utterance": "It is! You get personal attention from tutors, which helps a lot."},
+        {"speaker": "user", "utterance": "Which college would you recommend for someone studying literature?"},
+        {"speaker": "assistant", "utterance": "King’s and Trinity have strong traditions in the arts and humanities."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Do colleges compete with each other?"},
+        {"speaker": "assistant", "utterance": "Yes, especially in sports like rowing. The May Bumps and Lent Bumps are famous races."},
+        {"speaker": "user", "utterance": "Rowing sounds fun! Which college is the best at it?"},
+        {"speaker": "assistant", "utterance": "It changes every year, but St John’s, Caius, and Trinity are often at the top."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Are there any colleges just for postgraduate students?"},
+        {"speaker": "assistant", "utterance": "Yes, colleges like Wolfson and Darwin are mainly for graduates."},
+        {"speaker": "user", "utterance": "That’s interesting. So undergrads and postgrads don’t always mix?"},
+        {"speaker": "assistant", "utterance": "They do during university events, but their colleges often serve different needs."}
+    ],
+    [
+        {"speaker": "user", "utterance": "Thanks for all the information!"},
+        {"speaker": "assistant", "utterance": "You’re welcome! Are you thinking of applying to Cambridge?"},
+        {"speaker": "user", "utterance": "Maybe! It seems like an inspiring place."},
+        {"speaker": "assistant", "utterance": "It really is. Good luck if you decide to apply!"}
+    ]
+]
