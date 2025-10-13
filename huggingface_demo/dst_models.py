@@ -11,7 +11,7 @@ class DSTModel():
         raise NotImplementedError()
 
 class GelatoDSTModel(DSTModel):
-    def __init__(self, model_path="google/flan-t5-base"):
+    def __init__(self, model_path="google-t5/t5-base"):
         super().__init__()
         self.model_path = model_path
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
