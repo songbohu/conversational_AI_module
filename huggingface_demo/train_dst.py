@@ -68,7 +68,7 @@ def run_experiment():
         max_steps=int(5000),
         save_steps=int(5000),
         save_strategy="steps",
-        push_to_hub=True,
+        push_to_hub=False,
         fp16=False,
         generation_max_length=512
     )
