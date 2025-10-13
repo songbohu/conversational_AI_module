@@ -13,7 +13,8 @@ class DSTModel():
 class GelatoDSTModel(DSTModel):
     def __init__(self):
         super().__init__()
-        self.model_path = "./output/dst_model/checkpoint-best"
+        # self.model_path = "./output/dst_model/checkpoint-best"
+        self.model_path = "google-t5/t5-base"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_path).to(device)
 
