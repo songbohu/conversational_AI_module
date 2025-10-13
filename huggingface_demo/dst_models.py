@@ -17,7 +17,6 @@ class GelatoDSTModel(DSTModel):
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_path).to(device)
 
-
     def history_to_string(self, history):
         assert isinstance(history, list)
         processed_history = " ".join(list(map(lambda x: x["speaker"] + ": " + x["utterance"], history)))
@@ -42,17 +41,11 @@ class GelatoDSTModel(DSTModel):
     def predict(self, history):
 
         prefix = "dialogue state tracking"
-
         context_text = self.history_to_string(history)
-
         inputs = prefix + " : " + context_text
-
         model_inputs = self.tokenizer([inputs], return_tensors="pt").to(device)
-
         generated_ids = self.model.generate(**model_inputs,  max_new_tokens=512)
-
         output = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0]
-
 
         try:
             state = self.string_to_state(output)
@@ -61,7 +54,8 @@ class GelatoDSTModel(DSTModel):
         return state
 
 if __name__ == '__main__':
-    dst_model = GelatoDSTModel()
+    # dst_model = GelatoDSTModel()
+    dst_model = GelatoDSTModel(model_path="./output/dst_model/checkpoint-best")
 
     history = [{
             "speaker": "customer",

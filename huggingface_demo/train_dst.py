@@ -1,6 +1,6 @@
 import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, \
-    DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments, EarlyStoppingCallback
+    DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments
 
 import json
 from transformers import set_seed
