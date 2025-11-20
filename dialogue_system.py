@@ -45,7 +45,6 @@ class DialogueSystem(ABC):
         print("The system is ready. Type `bye` or `exit` to end the conversation.\n")
         while True:
             user_input = input("User: ")
-            self.append_turn("user", user_input)
 
             if user_input.lower() in ["exit", "bye"]:
                 print("Bot: Goodbye!")
@@ -56,6 +55,8 @@ class DialogueSystem(ABC):
 
             # Display assistant text
             print(f"\nBot: {result['text']}\n")
+
+            self.append_turn("user", user_input)
 
             # Append structured result
             self.append_turn("assistant", result["text"], meta={k: v for k, v in result.items() if k != "text"})
