@@ -1,63 +1,77 @@
-from dialogue_system import DialogueSystem
-from openai import OpenAI
 import os
-import sys
+
+from openai import OpenAI
+from typing import Literal
+from openai.types.responses import ResponseInputParam
+from dialogue_system import DialogueSystem
 
 
 class GPTBot(DialogueSystem):
-    """
-    A dialogue agent powered by OpenAI's GPT-5 Nano model.
-    Extends the DialogueSystem base class to generate responses
-    using the OpenAI API.
-    """
+    """A dialogue system powered by OpenAI's GPT-6 Luna model."""
 
-    def __init__(self, model: str = "gpt-5-nano-2025-08-07", key_path: str = "openai.key"):
-    # def __init__(self, model: str = "gpt-4o", key_path: str = "openai.key"):
-
+    def __init__(
+        self,
+        model: str = "gpt-6-luna",
+        key_path: str = "openai.key",
+    ):
         super().__init__()
         self.model = model
         self._load_openai_key(key_path)
         self.client = OpenAI()
 
     def _load_openai_key(self, key_path: str):
-        if not os.path.exists(key_path):
-            sys.exit(f"Error: The API key file '{key_path}' was not found.")
+
+        if os.environ.get("OPENAI_API_KEY"):
+            return
+
         with open(key_path, "r", encoding="utf-8") as f:
             api_key = f.read().strip()
+
+        if not api_key:
+            raise ValueError(f"The API key file '{key_path}' is empty.")
+
         os.environ["OPENAI_API_KEY"] = api_key
-        print("OpenAI API key loaded successfully.\n")
 
     def chat(self, utterance: str) -> dict:
-        """
-        Send the dialogue history and the latest user utterance to the LLM,
-        and return the generated response.
-        """
-        # Combine dialogue context
-        # messages = []
+        """Generate a reply using the previous dialogue history."""
 
-        messages = [{"role": "system",
-                     "content": "You are a friendly and knowledgeable Cambridge student who enjoys helping others learn about college life."}]
+        messages: ResponseInputParam = [{
+            "role": "system",
+            "content": (
+                "You are an unfriendly and knowledgeable Cambridge student who enjoys helping others learn about college life."
+            ),
+        }]
 
         for turn in self.conversation_history:
-            role = "assistant" if turn["speaker"] == "assistant" else "user"
-            messages.append({"role": role, "content": turn["utterance"]})
+            role: Literal["user", "assistant"] = (
+                "assistant" if turn["speaker"] == "assistant" else "user"
+            )
 
-        messages.append({"role": "user", "content": utterance})
+            messages.append({
+                "role": role,
+                "content": turn["utterance"],
+            })
 
-        # Call the GPT model
+        messages.append({
+            "role": "user",
+            "content": utterance,
+        })
+
         response = self.client.responses.create(
             model=self.model,
-            input=messages
-            # temperature=0.3,
-            # max_output_tokens=150,
-            # top_p=0.9
+            input=messages,
         )
 
-        reply_text = response.output_text.strip()
+        if response.status != "completed":
+            raise RuntimeError(
+                "The model response was not completed. Check the output-token limit or try again."
+            )
 
-        return {
-            "text": reply_text
-        }
+        reply_text = response.output_text.strip()
+        if not reply_text:
+            raise RuntimeError("The model returned no text response.")
+
+        return {"text": reply_text}
 
 
 if __name__ == "__main__":

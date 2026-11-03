@@ -1,6 +1,6 @@
-from openai import OpenAI
 import os
 import sys
+from openai import OpenAI
 
 def load_openai_key(key_path: str = "openai.key"):
     if not os.path.exists(key_path):
@@ -12,15 +12,20 @@ def load_openai_key(key_path: str = "openai.key"):
     os.environ["OPENAI_API_KEY"] = api_key
     print("OpenAI API key loaded successfully.")
 
-def test_openai_api():
+def test_openai_api(model: str = "gpt-6-luna"):
     client = OpenAI()
+
     response = client.responses.create(
-        model="gpt-5-nano-2025-08-07",
-        input="Write a one-sentence fun fact about Cambridge."
+        model=model,
+        input="Write a one-sentence fun fact about Cambridge.",
+        temperature=0.3,
+        max_output_tokens=512,
+        store=False,
     )
 
-    print("\n--- Model Response ---")
-    print(response.output_text)
+    reply = response.output_text.strip()
+    print(f"\n--- Model Response ({model}) ---")
+    print(reply)
     print("----------------------\n")
 
 if __name__ == "__main__":

@@ -20,4 +20,4 @@ def evaluate_bleu(output_file: str):
     print(f"Average BLEU score: {avg_bleu:.4f}")
 
 if __name__ == "__main__":
-    evaluate_bleu("logs/batch_output_20251012_101233.json")
+    evaluate_bleu("logs/batch_output_20261102_214439.json")

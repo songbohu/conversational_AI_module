@@ -8,7 +8,7 @@ import os, json, sys
 class LangChainRAGBot:
 
     def __init__(self,
-                 model_name="gpt-4o-mini",
+                 model_name="gpt-6-luna",
                  embedding_model="text-embedding-3-small",
                  key_path="openai.key",
                  kb_path="cambridge_knowledge_list.json"):
