@@ -30,12 +30,12 @@ def batch_replay(input_file: str, output_file: str = None):
 
             if speaker.lower() == "user":
                 # Record user utterance
-                bot.append_turn("user", utterance)
                 print(f"[{turn_idx}] User: {utterance}")
 
                 # System response
                 result = bot.chat(utterance)
                 generated_reply = result["text"]
+                bot.append_turn("user", utterance)
 
                 # Find ground-truth reply (if exists next)
                 gt_reply = None

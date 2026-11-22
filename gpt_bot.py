@@ -38,7 +38,7 @@ class GPTBot(DialogueSystem):
         messages: ResponseInputParam = [{
             "role": "system",
             "content": (
-                "You are an unfriendly and knowledgeable Cambridge student who enjoys helping others learn about college life."
+                "You are a friendly and knowledgeable Cambridge student who enjoys helping others learn about college life."
             ),
         }]
 

@@ -18,9 +18,6 @@ def test_openai_api(model: str = "gpt-6-luna"):
     response = client.responses.create(
         model=model,
         input="Write a one-sentence fun fact about Cambridge.",
-        temperature=0.3,
-        max_output_tokens=512,
-        store=False,
     )
 
     reply = response.output_text.strip()
